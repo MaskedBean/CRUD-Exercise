@@ -24,7 +24,7 @@ public class CarController {
     }
 
     @GetMapping("")
-    public List<Car> getCarS(@RequestParam String id) {
+    public List<Car> getCarS() {
         return carRepository.findAll();
     }
 
@@ -54,7 +54,7 @@ public class CarController {
     }
 
     @PutMapping("/{id}")
-    public Car updateCar(@PathVariable String id,@RequestParam String type){
+    public Car updateCar(@PathVariable String id, @RequestParam String type){
         if (carRepository.existsById(id)){
             Car cart = carRepository.findById(id).get();
             cart.setType(type);
